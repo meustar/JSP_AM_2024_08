@@ -10,11 +10,12 @@ import java.io.IOException;
 
 
 
-@WebServlet("/home/main2")
-public class HomeMainServlet2 extends HttpServlet {
+@WebServlet("/home/printDan")
+public class HomePrintDan extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.getWriter().append("Hello World!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!").append(request.getContextPath());
+		// 상대경로 토스
+		request.getRequestDispatcher("/jsp/home/printDan.jsp").forward(request, response);
 	}
 }
