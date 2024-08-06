@@ -6,7 +6,7 @@ CREATE TABLE article(
       id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
       regDate DATETIME NOT NULL,
       title CHAR(100) NOT NULL,
-      `body` TEXT NOT NULL
+      content TEXT NOT NULL
 );
 
 
@@ -14,17 +14,17 @@ CREATE TABLE article(
 INSERT INTO article
 SET regDate = NOW(),
 title = '제목1',
-`body` = '내용1';
+content = '내용1';
 
 INSERT INTO article
 SET regDate = NOW(),
 title = '제목2',
-`body` = '내용2';
+content = '내용2';
 
 INSERT INTO article
 SET regDate = NOW(),
 title = '제목3',
-`body` = '내용3';
+content = '내용3';
 
 SELECT *
 FROM article
@@ -36,4 +36,4 @@ ORDER BY id DESC;
 INSERT INTO article
 SET regDate = NOW(),
 title = CONCAT('제목', SUBSTRING(RAND() * 1000 FROM 1 FOR 2)),
-`body` = CONCAT('내용', SUBSTRING(RAND() * 1000 FROM 1 FOR 2));
+content = CONCAT('내용', SUBSTRING(RAND() * 1000 FROM 1 FOR 2));
