@@ -13,8 +13,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/article/list")
-public class ArticleListServlet extends HttpServlet {
+@WebServlet("/article/detail")
+public class ArticleDetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -28,7 +28,6 @@ public class ArticleListServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.getWriter().append("123");
 
 		String url = "jdbc:mysql://127.0.0.1:3306/24_08_JAM?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul";
 
@@ -42,14 +41,17 @@ public class ArticleListServlet extends HttpServlet {
 			response.getWriter().append("연결 성공!");
 
 			DBUtil dbUtil = new DBUtil(request, response);
+			
+			int id = Integer.parseInt(request.getParameter("id"));
 
-			String sql = "SELECT * FROM article ORDER BY id DESC";
+//			String sql = "SELECT * FROM article ORDER BY id DESC";
+			String sql = String.format("SELECT * FROM article WHERE id = %d", id);
 
-			List<Map<String, Object>> articleRows = dbUtil.selectRows(conn, sql);
+			Map<String, Object> articleRow = dbUtil.selectRow(conn, sql);
 
 //			response.getWriter().append(articleRows.toString());
-			request.setAttribute("articleRows", articleRows);
-			request.getRequestDispatcher("/jsp/article/list.jsp").forward(request, response);;
+			request.setAttribute("articleRow", articleRow);
+			request.getRequestDispatcher("/jsp/article/detail.jsp").forward(request, response);;
 			
 
 		} catch (SQLException e) {

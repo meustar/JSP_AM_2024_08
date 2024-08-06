@@ -10,9 +10,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시물 리스트</title>
+<title>게시물 목록</title>
 </head>
 <body>
+<!--
 	<h2>게시물 목록 v1</h2>
 	
 	<ul>
@@ -44,14 +45,20 @@
 		}
 		%>
 	</ul>
-	
+ -->	
+ 
+ 	<a href="https://www.naver.com" target="_blank">네이버</a>
+ 	<a href="http://localhost:8080/JSP_AM_2024_08/article/list"
+		target="_blank">리스트 새 창</a>
+ 	<a href="detail" target="_blank">디테일 새 창</a>
+ 
 	<h2>게시물 목록 v4</h2>
 	
 	<ul>
 		<%
 		for (Map<String, Object> articleRow : articleRows) {
 		%>
-		<li><%=articleRow.get("id")%>번, <%=articleRow.get("regDate")%>, <%=articleRow.get("title")%>, <%=articleRow.get("content")%></li>
+		<li><a href="detail?id=<%=articleRow.get("id")%>"><%=articleRow.get("id")%>번, <%=articleRow.get("regDate")%>, <%=articleRow.get("title")%>, <%=articleRow.get("content")%>"></a></li>
 		<%
 		}
 		%>
