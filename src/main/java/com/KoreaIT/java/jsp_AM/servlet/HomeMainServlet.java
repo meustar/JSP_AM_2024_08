@@ -1,4 +1,4 @@
-package com.KoreaIT.java.jsp_AM;
+package com.KoreaIT.java.jsp_AM.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,12 +10,11 @@ import java.io.IOException;
 
 
 
-@WebServlet("/home/printDan")
-public class HomePrintDan extends HttpServlet {
+@WebServlet("/home/main")
+public class HomeMainServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 상대경로 토스
-		request.getRequestDispatcher("/jsp/home/printDan.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/home/main.jsp").forward(request, response);
 	}
 }

@@ -14,6 +14,8 @@
 </head>
 <body>
 	<h2>게시물 상세페이지</h2>
+	
+	<a href="../home/main">메인 페이지로</a>
 
 	<div>번호 : <%=articleRow.get("id") %></div>
 	<div>날짜 : <%=articleRow.get("regDate") %></div>

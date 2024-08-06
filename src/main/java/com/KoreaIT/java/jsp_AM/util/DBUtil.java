@@ -1,5 +1,5 @@
 
-package com.KoreaIT.java.jsp_AM;
+package com.KoreaIT.java.jsp_AM.util;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,17 +13,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.KoreaIT.java.jsp_AM.exception.SQLErrorException;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class DBUtil {
-	HttpServletRequest req;
-	HttpServletResponse resp;
-
-	public DBUtil(HttpServletRequest request, HttpServletResponse response) {
-		this.req = request;
-		this.resp = response;
-	}
 
 	public static Map<String, Object> selectRow(Connection dbConn, String sql) {
 		List<Map<String, Object>> rows = selectRows(dbConn, sql);
