@@ -52,6 +52,31 @@
 	
 	<a href="../home/main">메인으로</a>
 	
+	<table style="border-collapse: collapse; border-color: yellowgreen;" border="1px">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>날짜</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for (Map<String, Object> articleRow : articleRows) {%>
+			<tr style="text-align: center;">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="doDelete?id=<%=articleRow.get("id")%>">del</a></td>
+			</tr>
+			<%
+			} 
+			%>
+		</tbody>
+	</table>
+	
 	<ul>
 		<%
 		for (Map<String, Object> articleRow : articleRows) {
