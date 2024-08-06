@@ -65,10 +65,10 @@
 		<tbody>
 			<% for (Map<String, Object> articleRow : articleRows) {%>
 			<tr style="text-align: center;">
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><%=articleRow.get("id")%></td>
+				<td><%=articleRow.get("regDate")%></td>
+				<td><%=articleRow.get("title")%></td>
+				<td><%=articleRow.get("content")%></td>
 				<td><a href="doDelete?id=<%=articleRow.get("id")%>">del</a></td>
 			</tr>
 			<%
@@ -77,15 +77,15 @@
 		</tbody>
 	</table>
 	
-	<ul>
-		<%
-		for (Map<String, Object> articleRow : articleRows) {
-		%>
-		<li><a href="detail?id=<%=articleRow.get("id")%>"><%=articleRow.get("id")%>번, <%=articleRow.get("regDate")%>, <%=articleRow.get("title")%>, <%=articleRow.get("content")%>"></a></li>
-		<%
-		}
-		%>
-	</ul>
+<!-- 	<ul> -->
+<%-- 		<% --%>
+<%--// 		for (Map<String, Object> articleRow : articleRows) {	--%>
+<%-- 		%> --%>
+<%-- 		<li><a href="detail?id=<%=articleRow.get("id")%>"><%=articleRow.get("id")%>번, <%=articleRow.get("regDate")%>, <%=articleRow.get("title")%>, <%=articleRow.get("content")%>"></a></li> --%>
+<%-- 		<% --%>
+<%--// 		}	--%>
+<%-- 		%> --%>
+<!-- 	</ul> -->
 	
 	
 </body>
