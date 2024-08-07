@@ -27,7 +27,8 @@ int totalCnt = (int) request.getAttribute("totalCnt");
 		개
 	</div>
 	
-	<table style="border-collapse: collapse; border-color: yellowgreen;" border="1px">
+	<table style="border-collapse: collapse; border-color: yellowgreen;"
+			 border="1px">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -38,7 +39,9 @@ int totalCnt = (int) request.getAttribute("totalCnt");
 			</tr>
 		</thead>
 		<tbody>
-			<% for (Map<String, Object> articleRow : articleRows) {%>
+			<% 
+			for (Map<String, Object> articleRow : articleRows) {
+			%>
 			<tr style="text-align: center;">
 				<td><%=articleRow.get("id")%></td>
 				<td><%=articleRow.get("regDate")%></td>
