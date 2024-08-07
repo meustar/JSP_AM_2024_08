@@ -72,11 +72,11 @@
 		</div>
 		<div>
 			비밀번호 : 
-			<input autocomplete="off" type="text" placeholder="PW" name="loginPw"/>
+			<input autocomplete="off" type="password" placeholder="PW" name="loginPw"/>
 		</div>
 		<div>
 			비밀번호 확인 : 
-			<input autocomplete="off" type="text" placeholder="Pw check" name="loginPwConfirm"/>
+			<input autocomplete="off" type="password" placeholder="Pw check" name="loginPwConfirm"/>
 		</div>
 		<div>
 			이름 : 

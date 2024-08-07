@@ -8,27 +8,46 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 작성 페이지</title>
+<title>로그인</title>
 </head>
 <body>
 	
-<!-- 	<a href="../home/main">메인 페이지로</a> -->
+	<a href="../home/main">메인 페이지로</a>
 
 	<h2>로 그 인</h2>
-	
-	<form method="POST" action="doLogin">
+
+	<script type="text/javascript">
+		function LoginForm__submit(form) {
+			let loginId = form.loginId.value.trim();
+			let loginPw = form.loginPw.value.trim();
+			if (loginId.length == 0) {
+				alert('아이디를 입력하세요.');
+				return;
+			}
+			if (loginPw.length == 0) {
+				alert('비밀번호를 입력하세요.');
+				return;
+			}
+			form.submit();
+		}
+	</script>
+
+
+	<form method="POST" action="doLogin"
+		onsubmit="LoginForm__submit(this); return false;">
 		<div>
-			아이디 : <input type="text" placeholder="ID" name="loginId"/>
+			아이디 : <input autocomplete="off" type="text" placeholder="아이디 입력해"
+				name="loginId" />
 		</div>
 		<div>
-			비밀번호 : 
-			<input type="Passward" placeholder="Passward" name="loginPw"/>
+			비밀번호 : <input autocomplete="off" type="text" placeholder="비밀번호 입력해"
+				name="loginPw" />
 		</div>
 		<button type="submit">로그인</button>
-		<button type="">로그아웃</button>
 	</form>
-	
-	<div><a style="color: yellowgreen" href="../home/main">HOME</a></div>
-	
+	<div>
+		<a style="color: yellowgreen" href="list">리스트로 돌아가기</a>
+	</div>
+
 </body>
 </html>
