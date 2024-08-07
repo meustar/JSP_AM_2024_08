@@ -11,6 +11,7 @@
 <body>
 	<h1>MAIN</h1>
 	<ul>
+		<li><a href="../member/login">로그인</a></li>
 		<li><a href="../member/account">회원가입</a></li>
 		<li><a href="../article/write">글쓰기</a></li>
 		<li><a href="../article/list">리스트로 이동</a></li>
