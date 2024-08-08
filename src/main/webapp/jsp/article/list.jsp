@@ -7,10 +7,9 @@
 boolean isLogined = (boolean) request.getAttribute("isLogined");
 int loginedMemberId = (int) request.getAttribute("loginedMemberId");
 Map<String, Object> loginedMember = (Map<String, Object>) request.getAttribute("loginedMember");
-%>
-  
-<%
-	List<Map<String, Object>> articleRows = (List<Map<String, Object>>)request.getAttribute("articleRows");
+
+List<Map<String, Object>> articleRows = (List<Map<String, Object>>)request.getAttribute("articleRows");
+
 int cPage = (int) request.getAttribute("page");
 int totalPage = (int) request.getAttribute("totalPage");
 int totalCnt = (int) request.getAttribute("totalCnt");
@@ -25,29 +24,7 @@ int totalCnt = (int) request.getAttribute("totalCnt");
  
 	<h2>게시물 목록</h2>
 	
-	
-	<div><%=loginedMemberId%>번 회원 로그인 중</div>
-	<div><%=loginedMember%></div>
-	
-	<%
-	if (isLogined) {
-	%>
-	<div>
-		<a href="../member/doLogout">로그아웃</a>
-		<a href="write">글쓰기</a>
-	</div>
-	
-	<%
-	}
-	%>
-	
-	<%
-	if (!isLogined) {
-	%>
-	<div><a href="../member/login">로그인</a></div>
-	<%
-	}
-	%>
+	<%@ include file="../part/top_bar.jspf"%>
 	
 	<a href="../home/main">메인으로</a>
 	
