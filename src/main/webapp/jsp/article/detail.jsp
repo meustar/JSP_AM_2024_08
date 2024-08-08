@@ -15,6 +15,9 @@
 <body>
 	<h2>게시물 상세페이지</h2>
 	
+	<%=articleRow %>
+	<%=articleRow.get("name") %>
+	
 	<a href="../home/main">메인 페이지로</a>
 
 	<div>번호 : <%=articleRow.get("id") %></div>
