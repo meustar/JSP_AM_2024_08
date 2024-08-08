@@ -14,10 +14,10 @@ Map<String, Object> loginedMember = (Map<String, Object>) request.getAttribute("
 </head>
 <body>
 	<h1>MAIN</h1>
-	
-	<div><%=loginedMemberId%></div>
-	<div><%=loginedMember%></div>
-	
+	<div style="display: none;">
+		<div><%=loginedMemberId%>번 회원 로그인 중</div>
+		<div><%=loginedMember%></div>
+	</div>
 	<%
 	if (isLogined) {
 	%>
@@ -29,7 +29,7 @@ Map<String, Object> loginedMember = (Map<String, Object>) request.getAttribute("
 	<%
 	if (!isLogined) {
 	%>
-	<div><a href="../member/doLogin">로그인</a></div>
+	<div><a href="../member/login">로그인</a></div>
 	<%
 	}
 	%>

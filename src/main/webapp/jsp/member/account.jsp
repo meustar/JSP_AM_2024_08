@@ -85,7 +85,7 @@
 		<button type="submit">가입</button>
 	</form>
 	
-	<div><a style="color: yellowgreen" href="list">리스트로 돌아가기</a></div>
+	<div><a style="color: yellowgreen" href="../article/list">리스트로 돌아가기</a></div>
 	
 </body>
 </html>

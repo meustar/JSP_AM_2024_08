@@ -18,8 +18,10 @@
 
 	<script type="text/javascript">
 		function LoginForm__submit(form) {
+			
 			let loginId = form.loginId.value.trim();
 			let loginPw = form.loginPw.value.trim();
+			
 			if (loginId.length == 0) {
 				alert('아이디를 입력하세요.');
 				return;

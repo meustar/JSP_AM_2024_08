@@ -19,6 +19,7 @@
 
 	<div>번호 : <%=articleRow.get("id") %></div>
 	<div>날짜 : <%=articleRow.get("regDate") %></div>
+	<div>작성자 : <%=articleRow.get("name") %></div>
 	<div>제목 : <%=articleRow.get("title") %></div>
 	<div>내용 : <%=articleRow.get("content") %></div>
 	

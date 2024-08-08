@@ -1,4 +1,3 @@
-
 package com.KoreaIT.java.jsp_AM.util;
 
 import java.sql.Connection;
@@ -14,9 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.KoreaIT.java.jsp_AM.exception.SQLErrorException;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 public class DBUtil {
 

@@ -20,6 +20,7 @@ import jakarta.servlet.http.HttpSession;
 public class MemberDoLoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 
@@ -31,7 +32,6 @@ public class MemberDoLoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-
 		String url = "jdbc:mysql://127.0.0.1:3306/24_08_JAM?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul";
 
 		String user = "root";
@@ -42,36 +42,35 @@ public class MemberDoLoginServlet extends HttpServlet {
 		try {
 			conn = DriverManager.getConnection(url, user, password);
 
-			
 			String loginId = request.getParameter("loginId");
 			String loginPw = request.getParameter("loginPw");
 
-			
 			SecSql sql = SecSql.from("SELECT *");
 			sql.append("FROM `member`");
-			sql.append("WHERE loginId = ?;",loginId);
-			
+			sql.append("WHERE loginId = ?;", loginId);
+
 			Map<String, Object> memberRow = DBUtil.selectRow(conn, sql);
-			
+
 			if (memberRow.isEmpty()) {
-				response.getWriter().append(String.format("<script>alert('%s는 없는 아이디 입니다.'); location.replace('../member/login');</script>", loginId));
+				response.getWriter().append(String.format(
+						"<script>alert('%s는 없는 아이디입니다.'); location.replace('../member/login');</script>", loginId));
 				return;
 			}
-			
-			if(memberRow.get("loginPw").equals(loginPw) == false) {
-				response.getWriter().append(String.format("<script>alert('비밀번호가 일치하지 않습니다.'); location.replace('../member/login');</script>"));
+
+			if (memberRow.get("loginPw").equals(loginPw) == false) {
+				response.getWriter().append(
+						String.format("<script>alert('비밀번호가 일치하지 않습니다.'); location.replace('../member/login');</script>"));
 				return;
 			}
-			
-			
+
 			HttpSession session = request.getSession();
 			session.setAttribute("loginedMemberId", memberRow.get("id"));
+			session.setAttribute("loginedMemberLoginId", memberRow.get("loginId"));
 			session.setAttribute("loginedMember", memberRow);
-			session.setAttribute("loginedMemberLoginId", memberRow.get("LoginId"));
 
-			response.getWriter().append(String.format("<script>alert('%s님 어서오세요.'); location.replace('../article/list');</script>", memberRow.get("name")));
-					
-			
+			response.getWriter()
+					.append(String.format("<script>alert('%s님 로그인 되었습니다. 어서오세요.'); location.replace('../article/list');</script>",
+							memberRow.get("name")));
 
 		} catch (SQLException e) {
 			System.out.println("에러 1 : " + e);
